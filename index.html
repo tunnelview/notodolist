@@ -36,7 +36,7 @@
 <!-- form area -->
 
 
-<form class="row row-cols-lg-auto g-3 align-items-center">
+<form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
 	<div class="col-12">
 	  <div class="input-group">
 		
@@ -59,7 +59,7 @@
 	<!--task list-->
 	<div class = "row">
 		<!-- left list -->
-		<div class="col-md-6 bg-light">
+		<div class="col-md-6 ">
 			<h2 class="text-center"> Task List</h2>
 			
 			<div>
@@ -124,9 +124,78 @@
 
 
 	<!-- right list -->
-		<div class="col-md-6">right</div>
-	</div>
-	</div>
+	<div class="col-md-6">
+		<h2 class="text-center"> Bad List</h2>
+		<!-- <hr> -->
+		<div>
+			<table class="table table-striped table-hover">
+				<tbody>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+						</td>
+						<td>Watching Tv</td>
+						<td>5hrs</td>
+						<td>
+							<button class="btn btn-primary">
+								<i class="fa-solid fa-arrow-left"></i>
+							</button>
+							<button class="btn btn-danger">
+								<i class="fa-solid fa-trash-can"></i>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+						</td>
+						<td>Watching Tv</td>
+						<td>5hrs</td>
+						<td>
+							<button class="btn btn-primary">
+								<i class="fa-solid fa-arrow-left"></i>
+							</button>
+							<button class="btn btn-danger">
+								<i class="fa-solid fa-trash-can"></i>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox"/>
+						</td>
+						<td>Watching Tv</td>
+						<td>5hrs</td>
+						<td>
+							<button class="btn btn-primary">
+								<i class="fa-solid fa-arrow-left"></i>
+							</button>
+							<button class="btn btn-danger">
+								<i class="fa-solid fa-trash-can"></i>
+							</button>
+						</td>
+					</tr>
+					
+			
+					
+				</tbody>
+				<tbody>
+				 
+				</tbody>
+			  </table>
+		
+		</div>
+		<div class=" text-end fw-bolder py-5">
+			You could have saved
+			<span id ="bad-hr ">10</span>Hrs
+		</div>
+	</div> 
+
+	<!-- total hours -->
+	<div class="row py-5">
+		<div class="col">
+			<h5>Total hours allocated = <span id = "total-hr">50</h5>
+		</div>
 	</div>
 </div>
     <script src="script.js"></script>
