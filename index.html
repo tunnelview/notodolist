@@ -36,17 +36,35 @@
 <!-- form area -->
 
 
-<form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+<!-- action="javascript:void(0)" to prevent default reloading when we refresh -->
+<form 
+action="javascript:void(0)"
+onsubmit = "handleOnSubmit(this)"
+class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
 	<div class="col-12">
 	  <div class="input-group">
 		
-		<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Task">
+		<input 
+		type="text" 
+		name="task"
+		class="form-control" 
+		id="inlineFormInputGroupUsername" 
+		placeholder="Task"
+		required
+		/>
 	  </div>
 	</div>
   
 	<div class="col-12">
 		<div class="input-group">
-		  <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Hours">
+		  <input 
+		  type="text" 
+		  name="hr"
+		  class="form-control" 
+		  id="inlineFormInputGroupUsername" 
+		  placeholder="Hours"
+		  required
+		  />
 		</div>
 	  </div>
 	
