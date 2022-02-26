@@ -1,5 +1,7 @@
 const taskList = [];
+const badList = [];
 const taskListElm = document.getElementById("task-list");
+const badListElm = document.getElementById("bad-list");
 
 const handleOnSubmit = (event) => {
   const frmDt = new FormData(event);
@@ -35,7 +37,7 @@ const display = () => {
 								
 									<i class="fa-solid fa-trash"></i>
 								</button>
-								<button class="btn btn-primary">
+								<button class="btn btn-primary" onclick = "markAsNotToDo(${array_index})">
 									<i class="fa-solid fa-arrow-right"></i>
 									</i>
 								</button>
@@ -47,11 +49,42 @@ const display = () => {
   taskListElm.innerHTML = str;
 };
 
+// display bad task list in the dom
+const displayBadlist = () => {
+  let str = "";
+
+  badList.map((array_item, array_index) => {
+    str += `
+      <tr>
+						<td>
+							<input type="checkbox"/>
+						</td>
+						<td>${array_item.task}</td>
+						<td>${array_item.hr}</td>
+						<td>
+							<button class="btn" onclick = "deleteTaskList(${array_index})">
+								<i class="fa-solid fa-arrow-left"></i>
+							</button>
+							<button class="btn btn-danger">
+								<i class="fa-solid fa-trash-can"></i>
+							</button>
+						</td>
+					</tr>`;
+  });
+  badListElm.innerHTML = str;
+};
+
 //delete item from task list
 
 const deleteTaskList = (item_index) => {
-  console.log(item_index);
-
-  taskList.splice(item_index, 1);
+  const itm = taskList.splice(item_index, 1);
   display();
+  return itm[0];
+};
+
+// mark task as to not to do item
+const markAsNotToDo = (item_index) => {
+  const baditm = deleteTaskList(item_index);
+  badList.push(baditm);
+  displayBadlist();
 };
