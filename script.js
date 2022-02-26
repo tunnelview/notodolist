@@ -1,5 +1,7 @@
 const taskList = [];
 const badList = [];
+const weekHrs = 7 * 24;
+
 const taskListElm = document.getElementById("task-list");
 const badListElm = document.getElementById("bad-list");
 
@@ -13,6 +15,13 @@ const handleOnSubmit = (event) => {
     task,
     hr,
   };
+
+  const ttlHr = taskTotalHrs();
+  const ttlBadHr = badTotalHrs();
+
+  if (ttlHr + ttlBadHr + hr > weekHrs) {
+  }
+
   taskList.push(obj);
 
   display();
@@ -93,6 +102,7 @@ const markAsNotToDo = (item_index) => {
 const deleteBadList = (item_index) => {
   const itm = badList.splice(item_index, 1);
   displayBadlist();
+  ``;
   return itm[0];
 };
 
@@ -102,4 +112,18 @@ const markAsTask = (item_index) => {
   taskList.push(baditm);
   //   displayBadlist();
   display();
+};
+
+//display total task hours
+const taskTotalHrs = () => {
+  const total = taskList.reduce((acc, item) => acc + item.hr, 0);
+  document.getElementById("total-hr").innerHTML = total;
+  return total;
+};
+
+//display total bad hours
+const badTotalHrs = () => {
+  const total = badList.reduce((acc, item) => acc + item.hr, 0);
+  document.getElementById("bad-hr").innerHTML = total;
+  return total;
 };
