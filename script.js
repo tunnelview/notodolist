@@ -20,10 +20,9 @@ const handleOnSubmit = (event) => {
   const ttlBadHr = badTotalHrs();
 
   if (ttlHr + ttlBadHr + hr > weekHrs) {
+    return alert("You have exceeded the weekly hours");
   }
-
   taskList.push(obj);
-
   display();
 };
 
