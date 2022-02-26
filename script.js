@@ -22,7 +22,7 @@ const display = () => {
 
   // loop through the task list and convert in to tr string
 
-  taskList.map((array_item, item_index) => {
+  taskList.map((array_item, array_index) => {
     str += `
         <tr>
 							<td>
@@ -31,7 +31,8 @@ const display = () => {
 							<td>${array_item.task}</td>
 							<td>${array_item.hr}</td>
 							<td>
-								<button class="btn btn-danger">
+                            <button class ="btn btn-dange" onclick = "deleteTaskList(${array_index})">
+								
 									<i class="fa-solid fa-trash"></i>
 								</button>
 								<button class="btn btn-primary">
@@ -44,4 +45,13 @@ const display = () => {
   });
 
   taskListElm.innerHTML = str;
+};
+
+//delete item from task list
+
+const deleteTaskList = (item_index) => {
+  console.log(item_index);
+
+  taskList.splice(item_index, 1);
+  display();
 };
