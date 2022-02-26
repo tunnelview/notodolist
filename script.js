@@ -1,4 +1,5 @@
 const taskList = [];
+const taskListElm = document.getElementById("task-list");
 
 const handleOnSubmit = (event) => {
   const frmDt = new FormData(event);
@@ -11,6 +12,8 @@ const handleOnSubmit = (event) => {
     hr,
   };
   taskList.push(obj);
+
+  display();
 };
 
 // display task list in the dom
@@ -25,8 +28,8 @@ const display = () => {
 							<td>
 								<input type="checkbox"/>
 							</td>
-							<td>Watching Tv</td>
-							<td>5hrs</td>
+							<td>${array_item.task}</td>
+							<td>${array_item.hr}</td>
 							<td>
 								<button class="btn btn-danger">
 									<i class="fa-solid fa-trash"></i>
@@ -39,4 +42,6 @@ const display = () => {
 						</tr>
         `;
   });
+
+  taskListElm.innerHTML = str;
 };
